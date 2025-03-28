@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Máy Xay Lúa Út Hằng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .feature-box {
+            background-color: #f7fafc; /* Light background */
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+        }
+
+        .feature-box:hover {
+            transform: translateY(-0.5rem); /* Move up slightly on hover */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Increase shadow on hover */
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: #48bb78; /* Green */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+            display: inline-flex; /* Use inline-flex for better alignment */
+            align-items: center;
+            justify-content: center; /* Center the content horizontally */
+            width: fit-content; /* Adjust width to content */
+        }
+
+        .btn-primary:hover {
+            background-color: #38a169; /* Darker green */
+        }
+
+        .btn-secondary {
+            background-color: #3182ce; /* Blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2767b3; /* Darker blue */
+        }
+
+        .section-title {
+            color: #1a5235; /* Dark green */
+            font-size: 2.25rem; /* Larger font size */
+            font-weight: 600; /* Semi-bold */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .section-description{
+             color: #4a5568;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        #hamburger-btn {
+            display: none; /* Hide on larger screens */
+        }
+
+        @media (max-width: 768px) {
+            #hamburger-btn {
+                display: block; /* Show on small screens */
+            }
+            .md\:hidden {
+                display: none;
+            }
+            .md\:block{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-green-600 text-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold">Nhà Máy Xay Lúa Út Hằng</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="hover:text-green-200 transition duration-300">Trang Chủ</a></li>
+                    <li><a href="#about" class="hover:text-green-200 transition duration-300">Về Chúng Tôi</a></li>
+                    <li><a href="#products" class="hover:text-green-200 transition duration-300">Sản Phẩm</a></li>
+                    <li><a href="#manufacturing" class="hover:text-green-200 transition duration-300">Quy Trình Sản Xuất</a></li>
+                    <li><a href="#wholesale" class="hover:text-green-200 transition duration-300">Bán Buôn</a></li>
+                    <li><a href="#contact" class="hover:text-green-200 transition duration-300">Liên Hệ</a></li>
+                    <li><a href="#news" class="hover:text-green-200 transition duration-300">Tin Tức</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+        <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+            <div class="flex justify-end mb-4">
+                <button id="close-menu-btn" class="text-white focus:outline-none" aria-label="Close Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="block">
+                <ul class="space-y-4">
+                    <li><a href="#home" class="block text-lg text-white hover:text-green-200 transition duration-300">Trang Chủ</a></li>
+                    <li><a href="#about" class="block text-lg text-white hover:text-green-200 transition duration-300">Về Chúng Tôi</a></li>
+                    <li><a href="#products" class="block text-lg text-white hover:text-green-200 transition duration-300">Sản Phẩm</a></li>
+                    <li><a href="#manufacturing" class="block text-lg text-white hover:text-green-200 transition duration-300">Quy Trình Sản Xuất</a></li>
+                    <li><a href="#wholesale" class="block text-lg text-white hover:text-green-200 transition duration-300">Bán Buôn</a></li>
+                    <li><a href="#contact" class="block text-lg text-white hover:text-green-200 transition duration-300">Liên Hệ</a></li>
+                    <li><a href="#news" class="block text-lg text-white hover:text-green-200 transition duration-300">Tin Tức</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="home" class="mb-16">
+            <div class="text-center">
+                <h2 class="text-4xl font-semibold text-green-700 mb-4">Nhà Máy Xay Lúa Út Hằng: Mang Đến Những Hạt Gạo Tinh Túy Nhất Từ Gia Đình Đến Bàn Ăn Của Bạn.</h2>
+                <p class="text-lg text-gray-600 mb-6">Chuyên cung cấp đa dạng các loại gạo, tấm, cám và lúa với chất lượng đảm bảo, giá cả hợp lý. Luôn sẵn sàng phục vụ từ gia đình nhỏ đến các đơn hàng lớn. Mang lại sự hài lòng và đáp ứng mọi nhu cầu của khách hàng.</p>
+                <img src="rice-field.jpg" alt="Ruộng Lúa" class="rounded-lg shadow-lg mx-auto mb-8 w-full max-w-3xl">
+                <div class="flex justify-center space-x-4">
+                    <a href="#products" class="btn-primary">Khám Phá Sản Phẩm</a>
+                    <a href="#wholesale" class="btn-secondary">Liên Hệ Bán Buôn</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-16">
+            <h2 class="section-title">Về Chúng Tôi: Nhà Máy Xay Lúa Út Hằng</h2>
+            <p class="section-description">Nhà Máy Xay Lúa Út Hằng là một doanh nghiệp gia đình với nhiều năm kinh nghiệm trong lĩnh vực sản xuất và cung cấp các sản phẩm từ gạo, tấm, cám và lúa. Chúng tôi tự hào mang đến cho khách hàng những sản phẩm chất lượng cao nhất, được sản xuất từ nguồn nguyên liệu chọn lọc và quy trình chế biến nghiêm ngặt.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Lịch Sử Phát Triển</h3>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Nhà Máy Xay Lúa Út Hằng được thành lập vào năm 1997 tại Tây Ninh, với khởi đầu là một cơ sở sản xuất nhỏ. Qua nhiều năm không ngừng phát triển, chúng tôi đã mở rộng quy mô sản xuất, đầu tư trang thiết bị hiện đại và xây dựng được uy tín vững chắc trên thị trường.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Giá Trị Cốt Lõi</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-600">
+                        <li><b>Chất lượng:</b> Chúng tôi cam kết cung cấp các sản phẩm chất lượng cao, an toàn cho sức khỏe người tiêu dùng.</li>
+                        <li><b>Uy tín:</b> Chúng tôi xây dựng mối quan hệ bền vững với khách hàng dựa trên sự tin cậy và minh bạch.</li>
+                        <li><b>Bền vững:</b> Chúng tôi hướng đến phát triển bền vững, thân thiện với môi trường và có trách nhiệm với cộng đồng.</li>
+                        <li><b>Tận tâm:</b> Chúng tôi luôn lắng nghe và đáp ứng mọi nhu cầu của khách hàng một cách tốt nhất.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Đội Ngũ Của Chúng Tôi</h3>
+                    <p class="text-lg text-gray-600 mb-4">Đội ngũ nhân viên của Nhà Máy Xay Lúa Út Hằng là những người có tay nghề cao, giàu kinh nghiệm và tâm huyết với nghề. Chúng tôi luôn nỗ lực học hỏi, cải tiến để nâng cao chất lượng sản phẩm và dịch vụ.</p>
+                </div>
+                <div>
+                    <img src="family-farm.jpg" alt="Nhà Máy Xay Lúa Út Hằng" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="mb-16">
+            <h2 class="section-title">Danh Mục Sản Phẩm</h2>
+             <p class="section-description">Chúng tôi cung cấp đa dạng các loại sản phẩm từ gạo, tấm, cám và lúa, đáp ứng mọi nhu cầu của khách hàng:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Gạo</h3>
+                    <p class="text-gray-600 mb-4">
+                        Các loại gạo thơm, gạo trắng, gạo lứt,... với nhiều phẩm cấp và quy cách đóng gói khác nhau.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700">
+                         <li>Gạo Thơm Lài</li>
+                         <li>Gạo Thơm Mỹ</li>
+                         <li>Gạo Xương Gà</li>
+                         <li>Gạo Tài Nguyên</li>
+                         <li>Và các loại gạo khác</li>
+                    </ul>
+                    <img src="jasmine-rice.jpg" alt="Các Loại Gạo" class="rounded-lg shadow-sm w-full mb-4">
+                    <a href="#" class="btn-primary">Xem Chi Tiết</a>
+                </div>
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Tấm</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tấm thường, tấm thơm, tấm đặc biệt.
+                    </p>
+                     <ul class="list-disc list-inside text-gray-700">
+                         <li>Tấm Thường</li>
+                         <li>Tấm Thơm</li>
+                         <li>Tấm Đặc Biệt</li>
+                     </ul>
+                    <img src="brown-rice.jpg" alt="Các Loại Tấm" class="rounded-lg shadow-sm w-full mb-4">
+                    <a href="#" class="btn-primary">Xem Chi Tiết</a>
+                </div>
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Cám</h3>
+                    <p class="text-gray-600 mb-4">
+                       Cám gạo thường, cám gạo chất lượng cao.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700">
+                         <li>Cám Gạo Thường</li>
+                         <li>Cám Gạo Chất Lượng Cao</li>
+                     </ul>
+                    <img src="rice-flour.jpg" alt="Các Loại Cám Gạo" class="rounded-lg shadow-sm w-full mb-4">
+                    <a href="#" class="btn-primary">Xem Chi Tiết</a>
+                </div>
+                <div class="product-card col-span-1 md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Lúa</h3>
+                    <p class="text-gray-600 mb-4">
+                        Lúa tươi, lúa khô với nhiều giống khác nhau.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700">
+                         <li>Lúa Tươi</li>
+                         <li>Lúa Khô</li>
+                     </ul>
+                    <img src="grain-mix.jpg" alt="Các Loại Lúa" class="rounded-lg shadow-sm w-full mb-4">
+                    <a href="#" class="btn-primary">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="btn-primary">Xem Tất Cả Sản Phẩm</a>
+            </div>
+        </section>
+
+        <section id="manufacturing" class="mb-16">
+            <h2 class="section-title">Quy Trình Sản Xuất</h2>
+            <p class="section-description">Nhà Máy Xay Lúa Út Hằng áp dụng quy trình sản xuất khép kín, từ khâu chọn giống, canh tác, thu hoạch, chế biến đến đóng gói, để đảm bảo chất lượng sản phẩm luôn được kiểm soát chặt chẽ.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Tuyển Chọn Lúa Khô</h3>
+                    <p class="text-lg text-gray-600 mb-4">Chúng tôi lựa chọn các giống lúa có năng suất cao, chất lượng tốt và phù hợp với điều kiện thổ nhưỡng của vùng. Lúa được thu hoạch đúng thời điểm để đảm bảo độ chín và chất lượng tốt nhất.  Quá trình sấy khô được thực hiện bằng công nghệ hiện đại để giữ lại hương vị và dinh dưỡng của hạt gạo.</p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Xay Xát và Chế Biến</h3>
+                    <p class="text-lg text-gray-600 mb-4">Chúng tôi sử dụng các thiết bị xay xát tiên tiến để chế biến lúa thành gạo, tấm, cám với các phẩm cấp khác nhau.  Quy trình chế biến được kiểm soát chặt chẽ để đảm bảo chất lượng và an toàn vệ sinh thực phẩm.</p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Đóng Gói và Bảo Quản</h3>
+                    <p class="text-lg text-gray-600 mb-4">Sản phẩm được đóng gói trong bao bì chất lượng cao, đảm bảo độ kín và bảo quản tốt nhất.  Chúng tôi có hệ thống kho bãi hiện đại để bảo quản sản phẩm trong điều kiện tốt nhất.</p>
+                </div>
+                <div>
+                    <img src="milling-process.jpg" alt="Quy Trình Sản Xuất" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <section id="wholesale" class="mb-16">
+            <h2 class="section-title">Bán Buôn và Hợp Tác</h2>
+            <p class="section-description">Nhà Máy Xay Lúa Út Hằng luôn sẵn sàng hợp tác với các đại lý, nhà phân phối và doanh nghiệp trên toàn quốc để đưa các sản phẩm gạo chất lượng cao đến tay người tiêu dùng.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Lợi Ích Khi Hợp Tác Với Chúng Tôi</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-600">
+                        <li>Giá cả cạnh tranh, chiết khấu hấp dẫn.</li>
+                        <li>Nguồn cung ổn định, đảm bảo số lượng và chất lượng.</li>
+                        <li>Cơ hội hợp tác lâu dài và cùng phát triển.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Đối Tác Của Chúng Tôi</h3>
+                    <p class="text-lg text-gray-600 mb-4">Chúng tôi đã và đang hợp tác với nhiều đối tác lớn trong ngành thực phẩm và bán lẻ.  Chúng tôi mong muốn mở rộng mạng lưới đối tác để đưa sản phẩm của mình đến với nhiều người tiêu dùng hơn.</p>
+                    <form class="mt-6">
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">Liên Hệ Buôn Bán</h3>
+                        <div class="mb-4">
+                            <label for="wholesale-name" class="block text-gray-700 text-sm font-bold mb-2">Tên:</label>
+                            <input type="text" id="wholesale-name" name="wholesale-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="wholesale-email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="wholesale-email" name="wholesale-email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="wholesale-message" class="block text-gray-700 text-sm font-bold mb-2">Tin Nhắn:</label>
+                            <textarea id="wholesale-message" name="wholesale-message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Gửi Yêu Cầu</button>
+                    </form>
+                </div>
+                <div>
+                    <img src="wholesale-partnership.jpg" alt="Hợp Tác Bán Buôn" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-16">
+            <h2 class="section-title">Liên Hệ</h2>
+            <p class="section-description">Quý khách có thể liên hệ với chúng tôi qua các kênh sau:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-4">Thông Tin Liên Hệ</h3>
+                    <p class="text-lg text-gray-700 mb-2">Địa chỉ: Số 383, tổ 19, ấp Bến Đình, Xã Thạnh Đức, Huyện Gò Dầu, Tây Ninh</p>
+                    <p class="text-lg text-gray-700 mb-2">Số Điện Thoại: 0937 980 649</p>
+                    <div class="mt-4">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m10!1m3!1d14876.733973715794!2d105.84112835!3d21.02296395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab99b0847593%3A0x698b6555b9750567!2zSMOgIE Nội!5e0!3m2!1svi!2sus!4v1708217648196!5m2!1svi!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <form>
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">Gửi Tin Nhắn Cho Chúng Tôi</h3>
+                        <div class="mb-4">
+                            <label for="contact-name" class="block text-gray-700 text-sm font-bold mb-2">Tên:</label>
+                            <input type="text" id="contact-name" name="contact-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="contact-email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="contact-email" name="contact-email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div class="mb-4">
+                            <label for="contact-message" class="block text-gray-700 text-sm font-bold mb-2">Tin Nhắn:</label>
+                            <textarea id="contact-message" name="contact-message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Gửi Tin Nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="mb-16">
+            <h2 class="section-title">Tin Tức Mới Nhất</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="text-xl font-semibold text-green-600 mb-2">Sản Phẩm Mới Ra Mắt:</h3>
+                    <p class="t
+
